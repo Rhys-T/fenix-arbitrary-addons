@@ -83,7 +83,7 @@ Similar to the previous set of instructions, but instead of getting the addon ob
 		"files": [{
 			"id": -1,
 			"url": "https://example.com/some-addon-1.2.3.4.xpi",
-			"permissions": [],
+			"permissions": ["https://unknown-permissions.use-at-your-own-risk.invalid/*"],
 		}],
 	},
 	"name": "Some Addon",
