@@ -1,4 +1,4 @@
-# Installing arbitrary addons into Fenix
+# Installing arbitrary addons into Android Firefox (Fenix)
 Well, nearly arbitrary, anyway - they still have to be signed by Mozilla, not be legacy extensions, etc., just like in desktop Firefox. But it is possible to get around Mozilla's tiny allow-list for Fenix extensions, without having to:
 
 - Switch to the Beta or Nightly version of Firefox, or one of the forks like Fennec F-Droid, Iceraven, or Mull
