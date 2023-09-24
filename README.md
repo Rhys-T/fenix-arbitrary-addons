@@ -1,3 +1,7 @@
+# TL;DR
+
+Use [addonInjectorForFenix][injector].
+
 # Installing arbitrary addons into Android Firefox (Fenix)
 Well, nearly arbitrary, anyway - they still have to be signed by Mozilla, not be legacy extensions, etc., just like in desktop Firefox. But it is possible to get around Mozilla's tiny allow-list for Fenix extensions, without having to:
 
@@ -133,12 +137,9 @@ await IOUtils.setModificationTime(myAddonCache, +myFakeModTime);
 
 ## Notes
 
-Yeah… it's a pain. I've written a Node.JS script that handles the entire process of building and injecting a custom addon list, and am hoping to release it soon… once I can wrap my head around the license situation and be sure it's safe to release:
-- I didn't really copy Mozilla code _per se_, but I dug through a _lot_ of Mozilla code while piecing together how to use the (old, XPCOM-based) file API (before I found out about IOUtils and rewrote based on that), so is my code based on Mozilla's code enough to need to be MPL'd?
-- I'm using [Foxdriver](https://github.com/saucelabs/foxdriver) to talk to Firefox's remote debugging interface. I'm patching it a bit to be able to do what I need - at runtime, using [Pirates](https://github.com/danez/pirates) (more because I'm too lazy to embed and maintain a fork than because of anything license-related). But I'm embedding little snippets of Foxdriver's code so that I can recognize them in the patching function, and Foxdriver is Apache-2.0-licensed. How does that affect things? Do I need to split those patches into a separate file from the other code?
-- Do I need to retcon a license file, copyright/license header comments, etc. into the Git history using `git-filter-repo`? Do I need to just start the history over with a new, properly licensed initial commit?
+Yeah… it's a pain. [I've written a Node.JS script][injector] that handles the entire process of building and injecting a custom addon list.
 
-And so on and so forth… It's entirely possible that I'm making it more complicated than it needs to be, but I _really_ don't want to mess it up.
+[injector]: https://github.com/Rhys-T/addonInjectorForFenix
 
 [^hn]: Warning: the command in that comment has an extra `.mozilla` in the path name.
 
