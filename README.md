@@ -2,6 +2,8 @@
 
 Use [addonInjectorForFenix][injector].
 
+Once Firefox 120 is released (or right now if you use Beta), it should be possible to install other addons just by using addons.mozilla.org. However, this still doesn't seem to allow installing `.xpi` files from other websites - that still requires using addonInjectorForFenix (or the manual version described below).
+
 # Installing arbitrary addons into Android Firefox (Fenix)
 Well, nearly arbitrary, anyway - they still have to be signed by Mozilla, not be legacy extensions, etc., just like in desktop Firefox. But it is possible to get around Mozilla's tiny allow-list for Fenix extensions, without having to:
 
