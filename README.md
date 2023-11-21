@@ -1,8 +1,15 @@
 # TL;DR
 
-Use [addonInjectorForFenix][injector].
+Use [addonInjectorForFenix][].
 
-Once Firefox 120 is released (or right now if you use Beta), it should be possible to install other addons just by using addons.mozilla.org. However, this still doesn't seem to allow installing `.xpi` files from other websites - that still requires using addonInjectorForFenix (or the manual version described below).
+## Still potentially useful on Firefox 120+
+
+[Firefox 120 now lets you install arbitrary extensions from addons.mozilla.org][prepare] (as long as you go to the desktop version of AMO), and no longer disables extensions that aren't on the official list. However, extensions that are published as `.xpi` files on other sites still can't normally be installed - it just tries to download them instead.
+
+It looks like Firefox 120 supports installing addons through the `navigator.mozAddonManager` API (available only to AMO), but not from a simple link to a `.xpi` file. I may end up writing a simplified version of [addonInjectorForFenix][] for v120+ that just tells it to install an addon from a `.xpi` URL, rather than messing with the addon list like this does. For now, you can still use the instructions under [To add `.xpi` files from sources other than AMO][] to install them.
+
+[prepare]: https://blog.mozilla.org/addons/2023/08/10/prepare-your-firefox-desktop-extension-for-the-upcoming-android-release/
+[To add `.xpi` files from sources other than AMO]: #to-add-xpi-files-from-sources-other-than-amo
 
 # Installing arbitrary addons into Android Firefox (Fenix)
 Well, nearly arbitrary, anyway - they still have to be signed by Mozilla, not be legacy extensions, etc., just like in desktop Firefox. But it is possible to get around Mozilla's tiny allow-list for Fenix extensions, without having to:
@@ -139,9 +146,9 @@ await IOUtils.setModificationTime(myAddonCache, +myFakeModTime);
 
 ## Notes
 
-Yeah… it's a pain. [I've written a Node.JS script][injector] that handles the entire process of building and injecting a custom addon list.
+Yeah… it's a pain. [I've written a Node.JS script][addonInjectorForFenix] that handles the entire process of building and injecting a custom addon list.
 
-[injector]: https://github.com/Rhys-T/addonInjectorForFenix
+[addonInjectorForFenix]: https://github.com/Rhys-T/addonInjectorForFenix
 
 [^hn]: Warning: the command in that comment has an extra `.mozilla` in the path name.
 
