@@ -11,6 +11,15 @@ It looks like Firefox 120 supports installing addons through the `navigator.mozA
 [prepare]: https://blog.mozilla.org/addons/2023/08/10/prepare-your-firefox-desktop-extension-for-the-upcoming-android-release/
 [To add `.xpi` files from sources other than AMO]: #to-add-xpi-files-from-sources-other-than-amo
 
+### Update: May not be needed for ~122+?
+I missed this getting added, and I'm not sure exactly which version it first appeared in (probably ~122), but apparently the stable releases of Firefox for Android now have a hidden "Install add-on from file" command.
+
+- Go to Settings > About Firefox.
+- Tap the logo five times to enable the debug settings.
+- Go back to Settings. "Install add-on from file" should appear in the Advanced section, right below "Add-ons".
+
+So we might not need any of this anymore, assuming that extensions installed this way still update themselves normally.
+
 # Installing arbitrary addons into Android Firefox (Fenix)
 Well, nearly arbitrary, anyway - they still have to be signed by Mozilla, not be legacy extensions, etc., just like in desktop Firefox. But it is possible to get around Mozilla's tiny allow-list for Fenix extensions, without having to:
 
